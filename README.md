@@ -2,6 +2,8 @@
 
 An interactive application developed as part of a university machine learning course to explore online shopping behaviour and purchase intentions.
 
+https://online-shopping-analytics-ml-project-hru36ehnojgkz7ytucr7dj.streamlit.app/
+
 ## About the Project
 
 The project uses the Online Shoppers Purchasing Intention dataset to analyse customer browsing sessions and investigate patterns associated with completed purchases.
