@@ -1,48 +1,52 @@
-# online-shopping-analytics-ML-Project
-Interactive analysis of online shopping behavior using Python, Streamlit, and machine learning.
-About the Project
+# Online Shopping Analytics — Machine Learning Project
+
+An interactive application developed as part of a university machine learning course to explore online shopping behaviour and purchase intentions.
+
+## About the Project
 
 The project uses the Online Shoppers Purchasing Intention dataset to analyse customer browsing sessions and investigate patterns associated with completed purchases.
 
 The application was built with Python and Streamlit and includes interactive data visualisations and machine learning models.
 
-Technologies Used
+## Technologies Used
 
-Python
+- Python
+- Pandas and NumPy
+- Streamlit
+- Plotly, Seaborn and Matplotlib
+- Scikit-learn
 
-Pandas and NumPy
+## Features
 
-Streamlit
+### Exploratory Data Analysis
+- Interactive scatter plots and histograms
+- Exploring relationships between browsing behaviour and purchases
 
-Plotly, Seaborn and Matplotlib
+### Machine Learning
+- Logistic Regression for purchase intention classification
+- K-Means Clustering for customer session grouping
+- Decision Tree Classification
+- Model evaluation using classification metrics
 
-Scikit-learn
+## Dataset
 
-Features
+[Online Shoppers Purchasing Intention Dataset](https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset) — UCI Machine Learning Repository.
 
-Exploratory Data Analysis
+## Project Background
 
-Interactive scatter plots and histograms
+Originally developed as a university machine learning project and later revisited to improve compatibility with current Python libraries, preprocessing, and model evaluation.
 
-Filtering customer sessions by purchase outcome
+## How to Run
 
-Exploring relationships between website activity and purchases
+Install the dependencies:
 
-Machine Learning
+```bash
+pip install -r requirements.txt
+```
 
-Logistic Regression for purchase intention classification
+Run the Streamlit application:
 
-K-Means Clustering for exploring customer session groups
-
-Decision Tree Classification
-
-Model evaluation using classification metrics
-
-Dataset
-
-Online Shoppers Purchasing Intention Dataset — UCI Machine Learning Repository.
-
-Project Background
-
-This application was originally developed for a university machine learning course. I later revisited the project to improve its compatibility with current Python libraries, data preprocessing, and model evaluation.
+```bash
+streamlit run final-project.py
+```
 
