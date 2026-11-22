@@ -1,28 +1,33 @@
-# Restored version of our university Online Shopping project.
-# Original sections and model choices are kept; broken file paths and model issues are fixed.
 from pathlib import Path
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
-from sklearn.metrics import (accuracy_score, confusion_matrix, precision_score,
-                             recall_score, f1_score, silhouette_score,
-                             davies_bouldin_score, calinski_harabasz_score)
-from sklearn.model_selection import train_test_split, learning_curve
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier, plot_tree
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
+import seaborn as sns
+import plotly.express as px
 
+from sklearn.model_selection import train_test_split, learning_curve
+from sklearn.metrics import davies_bouldin_score, calinski_harabasz_score
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import silhouette_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.cluster import KMeans
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix
+)
 PROJECT_DIR = Path(__file__).resolve().parent
+df = pd.read_csv(PROJECT_DIR / "online_shoppers_intention.csv")
 
 st.title('Online shopping')
 
 
-# Define a function that shows and hides the information when the button is clicked
+# Info
 def toggle_info():
     if st.session_state.show_info:
         st.write("Administrative - Number of pages visited by the visitor about account management")
@@ -52,7 +57,6 @@ def toggle_info():
         st.write("Click the button to show the information")
 
 
-# Create a button that toggles the display of the information
 if "show_info" not in st.session_state:
     st.session_state.show_info = False
 if st.button("Show/Hide Information"):
@@ -82,7 +86,7 @@ col2 = st.selectbox('Which feature on y?', df.columns[0:16])
 
 new_df = df[(df['Revenue'].isin(species))]
 
-# create figure using plotly express
+# creating figure using plotly express
 fig = px.scatter(new_df, x =col1,y=col2, color='Revenue')
 # Plot!
 
@@ -97,7 +101,7 @@ new_df2 = df[(df['Revenue'].isin(species))][feature]
 fig2 = px.histogram(new_df, x=feature, color="Revenue", marginal="rug")
 st.plotly_chart(fig2)
 
-# Keep the original dataset for charts; encode categories for the ML models.
+
 X = pd.get_dummies(df.drop(columns=['Revenue']), dummy_na=True).astype(float)
 X = X.replace([np.inf, -np.inf], np.nan).fillna(0)
 y = df['Revenue'].astype(int)
@@ -200,9 +204,9 @@ elif classifier=='Decision tree':
     st.pyplot(fig)
     plt.close(fig)
 
-# Optional reminder of the original university project.
+# Logo of UNI interactive game
 st.sidebar.subheader('University project extra')
-with st.sidebar.expander('Original animation'):
+with st.sidebar.expander('UNI logo animation'):
     video_path = PROJECT_DIR / 'university_animation.mp4'
     if video_path.exists():
         st.video(str(video_path))
